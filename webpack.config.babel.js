@@ -7,6 +7,7 @@ module.exports = {
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client',
+    'webpack/hot/only-dev-server',
     resolve(__dirname, 'app/index.jsx'),
   ],
   output: {
@@ -15,7 +16,7 @@ module.exports = {
     publicPath: '/'
   },
   context: resolve(__dirname, 'app'),
-  devtool: 'inline-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
   devServer: {
     host: '0.0.0.0',
     port: 3001,
