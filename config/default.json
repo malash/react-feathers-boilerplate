@@ -1,0 +1,17 @@
+{
+  "host": "localhost",
+  "port": 3000,
+  "mysql": {
+    "conn": "mysql://root:@localhost:3306/db",
+    "prefix": "perfix"
+  },
+  "app": "../app",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "FEATHERS_AUTH_SECRET"
+    },
+    "local": {}
+  }
+}

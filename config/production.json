@@ -1,0 +1,16 @@
+{
+  "host": "react-feathers-boilerplate-app.feathersjs.com",
+  "port": 3030,
+  "mysql": {
+    "conn": "mysql://root:@localhost:3306/db",
+    "prefix": "prefix"
+  },
+  "public": "../dist/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "FEATHERS_AUTH_SECRET"
+    },
+    "local": {}
+  }
+}
