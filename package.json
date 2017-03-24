@@ -50,12 +50,14 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "test": "npm run jshint && npm run mocha",
-    "jshint": "jshint src/. test/. --config",
     "dev": "concurrently \"npm run dev-fe\" \"npm run dev-be\"",
     "dev-fe": "webpack-dev-server",
     "dev-be": "supervisor -w src/ src/",
-    "mocha": "mocha test/ --recursive"
+    "jshint": "jshint src/. test/. --config",
+    "mocha": "mocha test/ --recursive",
+    "test": "npm run jshint && npm run mocha",
+    "build": "NODE_ENV=production webpack -p --progress --profile",
+    "start": "NODE_ENV=production node ."
   },
   "repository": {
     "type": "git",

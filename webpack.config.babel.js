@@ -4,19 +4,20 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 module.exports = {
-  entry: [
+  entry: (process.env.NODE_ENV === 'production' ? [] : [
     'react-hot-loader/patch',
     'webpack-dev-server/client',
     'webpack/hot/only-dev-server',
-    resolve(__dirname, 'app/index.jsx'),
-  ],
+  ])
+    .concat([resolve(__dirname, 'app/index.jsx')]),
   output: {
     path: resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'bundle.[hash].js',
+    sourceMapFilename: 'bundle.[hash].map',
     publicPath: '/'
   },
   context: resolve(__dirname, 'app'),
-  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'eval-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? 'cheap-source-map' : 'eval-source-map',
   devServer: {
     host: '0.0.0.0',
     port: 3001,
@@ -64,6 +65,6 @@ module.exports = {
       template: resolve(__dirname, 'app/index.html'),
       filename: 'index.html',
       inject: 'body',
-    }),
+    })
   ]
 }
