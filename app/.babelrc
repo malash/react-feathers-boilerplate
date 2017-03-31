@@ -4,11 +4,13 @@
     "stage-0",
     "react"
   ],
+  "plugins": [
+    "transform-decorators-legacy"
+  ],
   "env": {
     "development": {
       "plugins": [
-        "react-hot-loader/babel",
-        "transform-decorators-legacy"
+        "react-hot-loader/babel"
       ]
     }
   }
