@@ -55,7 +55,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
-    "dev": "concurrently \"npm run dev-fe\" \"npm run dev-be\"",
+    "dev": "concurrently -p \"[{name}]\" -n \"fe,be\" \"npm run dev-fe\" \"npm run dev-be\"",
     "dev-fe": "webpack-dev-server",
     "dev-be": "supervisor -w src/ src/",
     "jshint": "jshint src/. test/. --config",
