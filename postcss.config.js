@@ -5,6 +5,12 @@ module.exports = {
     },
     'postcss-mixins': {},
     'postcss-each': {},
-    'postcss-cssnext': {}
+    'postcss-cssnext': {
+      features: {
+        rem: {
+          rootValue: '62.5%',
+        },
+      },
+    }
   },
 };
